@@ -52,7 +52,7 @@ public class Purchase {
 
     @Then("I get a confirmation message")
     public void result(){
-        cart.switchToAlert();
+        cart.accept();
     }
 
 
