@@ -1,10 +1,10 @@
 package stepDefinitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CartPage;
@@ -23,7 +23,7 @@ public class Purchase {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "./src/test/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "./src/chromedriver.exe.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         home = new HomePage(driver);
