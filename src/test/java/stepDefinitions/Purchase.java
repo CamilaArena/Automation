@@ -1,9 +1,9 @@
 package stepDefinitions;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.messages.types.Product;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,18 +15,21 @@ import pages.ProductPage;
 import java.time.Duration;
 
 public class Purchase {
-
     public WebDriver driver;
-    private HomePage home = new HomePage(driver);
-    private ProductPage productToBuy = new ProductPage(driver);
-    private Navbar nav = new Navbar(driver);
-    private CartPage cart = new CartPage(driver);
+    private HomePage home;
+    private ProductPage productToBuy;
+    private Navbar nav;
+    private CartPage cart;
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "./Automation/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "./src/test/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        home = new HomePage(driver);
+        productToBuy = new ProductPage(driver);
+        nav = new Navbar(driver);
+        cart = new CartPage(driver);
     }
 
     @Given("I'm in the home page")
@@ -55,5 +58,10 @@ public class Purchase {
         cart.accept();
     }
 
+    @After
+    public void close() {
+        driver.manage().deleteAllCookies();
+        driver.quit();
+    }
 
 }
