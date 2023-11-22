@@ -1,5 +1,5 @@
 
-*Project Automation with Selenium and Cucumber for DemoBlaze*
+***Project Automation with Selenium and Cucumber for DemoBlaze***
 
 **Overview**
 Welcome to the automation project for DemoBlaze, where we leverage Selenium and Cucumber to streamline and enhance the testing process. This README file provides essential information to help you understand, set up, and contribute to this project.
