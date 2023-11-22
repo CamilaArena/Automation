@@ -23,7 +23,7 @@ public class Purchase {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "./src/chromedriver.exe.exe");
+        System.setProperty("webdriver.chrome.driver", "./src/test/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         home = new HomePage(driver);
@@ -34,7 +34,7 @@ public class Purchase {
 
     @Given("I'm in the home page")
         public void openHome(){
-         driver.get("/https://www.demoblaze.com/index");
+         driver.get("https://www.demoblaze.com/index.html");
     }
 
     @When("I select {string} category and add {string}")
