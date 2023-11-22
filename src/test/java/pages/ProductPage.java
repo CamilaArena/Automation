@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class ProductPage extends BasePage {
-    protected By addToCartButton =By.cssSelector("[onclick=\"addToCart('1')\"]");
+    protected By addToCartButton =By.xpath("//*[@id=\"tbodyid\"]/div[2]/div/a");
 
     public ProductPage(WebDriver driver) {
         super(driver);

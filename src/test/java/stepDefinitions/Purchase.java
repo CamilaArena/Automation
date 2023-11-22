@@ -5,6 +5,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CartPage;
@@ -23,7 +24,7 @@ public class Purchase {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "./src/test/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         home = new HomePage(driver);
@@ -42,13 +43,14 @@ public class Purchase {
             home.clickCategory(category);
             home.clickProduct(product);
             productToBuy.clickAdd();
-            productToBuy.switchToAlert();
-            nav.click("cart");
-            cart.clickOrder();
+            Alert alert = cart.switchToAlert();
+            alert.dismiss();
     }
 
     @When("I complete the purchase")
     public void purchase(){
+        nav.click("cart");
+        cart.clickOrder();
         cart.completeData();
         cart.clickPurchase();
     }
