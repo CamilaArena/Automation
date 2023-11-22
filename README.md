@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the automation project for DemoBlaze (https://www.demoblaze.com/), where we leverage Selenium and Cucumber to streamline and enhance the testing process. This README file provides essential information to help you understand, set up, and contribute to this project.
+Welcome to the automation project for DemoBlaze (https://www.demoblaze.com/), where we leverage Selenium and Cucumber to streamline and enhance the testing process. This README file provides essential information to help you understand and setup this project.
 
 ## Table of Contents
 
