@@ -33,5 +33,4 @@ public class HomePage extends BasePage{
         findElement(productLocator).click();
     }
 
-
 }

@@ -5,15 +5,12 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CartPage;
 import pages.HomePage;
 import pages.Navbar;
 import pages.ProductPage;
-
-import java.time.Duration;
 
 public class Purchase {
     public WebDriver driver;
@@ -43,8 +40,7 @@ public class Purchase {
             home.clickCategory(category);
             home.clickProduct(product);
             productToBuy.clickAdd();
-            Alert alert = cart.switchToAlert();
-            alert.dismiss();
+            cart.switchToAlert().dismiss();
     }
 
     @When("I complete the purchase")

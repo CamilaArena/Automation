@@ -14,7 +14,6 @@ public class CartPage extends BasePage{
     protected By card = By.id("card");
     protected By month = By.id("month");
     protected By year = By.id("year");
-
     protected By purchase =By.cssSelector("[onclick=\"purchaseOrder()\"]");
 
     public CartPage(WebDriver driver) {
