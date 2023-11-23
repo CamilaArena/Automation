@@ -5,41 +5,44 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.ro.Si;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.Navbar;
+import pages.SignupPage;
+
 public class Signup {
     public WebDriver driver;
-    private Navbar nav;
+    private SignupPage signup;
 
     @Before
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        nav = new Navbar(driver);
+        signup = new SignupPage(driver);
     }
 
-    @Given("I open home page")
-    public void openHome(){
-        driver.get("https://www.demoblaze.com/index.html");
-    }
+   // @Given("I'm in the home page")
+  //  public void openHome(){
+  //      driver.get("https://www.demoblaze.com/index.html");
+   // }
 
     @When("I select Sign up in the navbar")
     public void signUp(){
-        nav.click("sign up");
+        signup.click();
     }
 
     @When("I create a new username and complete the username and password fields")
     public void register(){
-        nav.completeUsername();
-        nav.completePassword();
+        signup.completeUsername();
+        signup.completePassword();
     }
 
     @Then("I get a success message")
     public void success(){
-        nav.register();
-        nav.switchToAlert().dismiss();
+        signup.register();
+        signup.switchToAlert().dismiss();
     }
 
     @After
