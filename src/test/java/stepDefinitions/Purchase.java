@@ -30,10 +30,6 @@ public class Purchase {
         cart = new CartPage(driver);
     }
 
-    @Given("I'm in the home page")
-        public void openHome(){
-         driver.get("https://www.demoblaze.com/index.html");
-    }
 
     @When("I select {string} category and add {string}")
         public void addProduct(String category, String product){

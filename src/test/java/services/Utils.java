@@ -3,17 +3,31 @@ package services;
 import java.util.UUID;
 
 public class Utils {
+
+    public static String username;
+    public static String password;
     public static String generateRandomUsername() {
-        return "user_" + UUID.randomUUID().toString().substring(0, 8);
+        username = "user_" + UUID.randomUUID().toString().substring(0, 8);
+        return username;
     }
 
     public static String generateRandomPassword() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+";
-        StringBuilder password = new StringBuilder();
+        StringBuilder p = new StringBuilder();
         for (int i = 0; i < 12; i++) {
             int index = (int) (Math.random() * characters.length());
-            password.append(characters.charAt(index));
+            p.append(characters.charAt(index));
         }
-        return password.toString();
+        password = p.toString();
+        return password;
     }
+
+    public static String getUsername(){
+        return username;
+    }
+
+    public static String getPassword(){
+        return password;
+    }
+
 }

@@ -23,10 +23,10 @@ public class Signup {
         signup = new SignupPage(driver);
     }
 
-   // @Given("I'm in the home page")
-  //  public void openHome(){
-  //      driver.get("https://www.demoblaze.com/index.html");
-   // }
+    @Given("I'm in the home page")
+    public void openHome(){
+        driver.get("https://www.demoblaze.com/index.html");
+   }
 
     @When("I select Sign up in the navbar")
     public void signUp(){

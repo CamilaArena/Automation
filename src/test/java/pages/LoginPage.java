@@ -22,16 +22,16 @@ public class LoginPage extends BasePage{
     }
 
     public void completeValidUsername(){
-        findElement(username).sendKeys(signup.getUsername()); //puts an existing username
+            findElement(username).sendKeys(Utils.getUsername()); //puts an existing username
     }
 
     public void completeValidPassword(){
-        findElement(password).sendKeys(signup.getPassword());
+        findElement(password).sendKeys(Utils.getPassword());
     }
 
     public void completeInValidUsername(){
         findElement(username).sendKeys(Utils.generateRandomUsername());
-    }
+    } //creates new username
 
     public void completeInValidPassword(){
         findElement(password).sendKeys(Utils.generateRandomPassword());
