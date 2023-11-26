@@ -5,13 +5,9 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.ro.Si;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import pages.LoginPage;
-import pages.Navbar;
-import pages.SignupPage;
 import services.DriverManager;
 
 public class Login {
@@ -25,7 +21,7 @@ public class Login {
         login = new LoginPage();
     }
 
-    //  Scenario: I log in with valid credentials
+    // Scenario: I log in with valid credentials
     @Given("I open home page")
     public void openHome(){
         driver.get("https://www.demoblaze.com/index.html");
@@ -38,20 +34,20 @@ public class Login {
 
     @When("I complete the username and password with valid ones")
     public void completeData(){
-        login.completeInValidUsername();
+        login.completeValidUsername();
         login.completeValidPassword();
     }
 
     @Then("I get logged in")
     public void success(){
         login.login();
-       // Assert.assertEquals("Welcome "+login.getUsername() , login.getWelcome());
+        Assert.assertEquals("Welcome "+login.getUsername() , login.getWelcome());
     }
 
-    //  Scenario: I try to log in with invalid credentials
+    // I try to log in with invalid username
     @When("I complete the username with an invalid one")
     public void completeInvalidUsername(){
-        login.completeInValidUsername();
+        login.completeInvalidUsername();
         login.completeValidPassword();
     }
 
@@ -62,11 +58,11 @@ public class Login {
         login.switchToAlert().dismiss();
     }
 
-    //Scenario: I try to log in with invalid username
+    // Scenario: I try to log in with invalid password
     @When("I complete the username field with a valid username, and the password with an invalid one")
     public void completeInvalidPassword(){
         login.completeValidUsername();
-        login.completeInValidPassword();
+        login.completeInvalidPassword();
     }
 
     @Then("I get a message indicating that the password is incorrect")

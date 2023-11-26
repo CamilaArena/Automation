@@ -1,9 +1,8 @@
 package pages;
 
-import okhttp3.internal.Util;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import services.Utils;
+
 public class SignupPage extends BasePage{
     protected By signInButton = By.id("signin2");
     protected By username = By.id("sign-username");

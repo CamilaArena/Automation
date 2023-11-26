@@ -1,9 +1,8 @@
 package pages;
 
-import okhttp3.internal.Util;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import services.Utils;
+
 public class LoginPage extends BasePage{
     protected By loginNavBar = By.id("login2");
     protected By username = By.id("loginusername");
@@ -21,31 +20,37 @@ public class LoginPage extends BasePage{
         findElement(loginNavBar).click();
     }
 
-    public void completeValidUsername(){
-            findElement(username).sendKeys(Utils.getUsername()); //puts an existing username
+    public void completeValidUsername(){ //puts an existing username
+        findElement(username).sendKeys(Utils.getUsername());
     }
 
     public void completeValidPassword(){
         findElement(password).sendKeys(Utils.getPassword());
     }
 
-    public void completeInValidUsername(){
+    public void completeInvalidUsername(){ //creates a new username
         findElement(username).sendKeys(Utils.generateRandomUsername());
-    } //creates new username
+    }
 
-    public void completeInValidPassword(){
+    public void completeInvalidPassword(){ //creates a new password
         findElement(password).sendKeys(Utils.generateRandomPassword());
     }
+
     public void login(){
         findElement(login).click();
     }
 
     public String getWelcome(){
+        System.out.println(findElement(welcomeSign).getText());
         return findElement(welcomeSign).getText();
     }
 
     public String getUsername(){
         return signup.getUsername();
+    }
+
+    public String getPassword(){
+        return signup.getPassword();
     }
 
 }
