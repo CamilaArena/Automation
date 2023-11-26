@@ -17,7 +17,7 @@ public class Signup {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         signup = new SignupPage(driver);
