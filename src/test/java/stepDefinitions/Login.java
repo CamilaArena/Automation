@@ -12,6 +12,7 @@ import org.testng.Assert;
 import pages.LoginPage;
 import pages.Navbar;
 import pages.SignupPage;
+import services.DriverManager;
 
 public class Login {
     public WebDriver driver;
@@ -19,10 +20,9 @@ public class Login {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();
         driver.manage().window().maximize();
-        login = new LoginPage(driver);
+        login = new LoginPage();
     }
 
     //  Scenario: I log in with valid credentials
@@ -79,6 +79,5 @@ public class Login {
     @After
     public void close() {
         driver.manage().deleteAllCookies();
-        driver.quit();
     }
 }

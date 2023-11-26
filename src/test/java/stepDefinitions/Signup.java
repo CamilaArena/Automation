@@ -8,8 +8,10 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.ro.Si;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.LoginPage;
 import pages.Navbar;
 import pages.SignupPage;
+import services.DriverManager;
 
 public class Signup {
     public WebDriver driver;
@@ -17,10 +19,9 @@ public class Signup {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();
         driver.manage().window().maximize();
-        signup = new SignupPage(driver);
+        signup = new SignupPage();
     }
 
     @Given("I'm in the home page")
@@ -48,6 +49,5 @@ public class Signup {
     @After
     public void close() {
         driver.manage().deleteAllCookies();
-        driver.quit();
     }
 }

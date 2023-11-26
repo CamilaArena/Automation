@@ -6,18 +6,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import services.DriverManager;
 
-
-import java.time.Duration;
 import java.util.List;
 
 public abstract class BasePage {
-    protected static WebDriver driver;
-    protected static WebDriverWait wait;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, 5);
+    public BasePage() {
+        this.driver = DriverManager.getDriver();
+        this.wait = new WebDriverWait(driver, 5);
     }
 
     public String getCurrentUrl() {
@@ -33,7 +32,7 @@ public abstract class BasePage {
         return driver.findElement(locator);
     }
 
-    public List<WebElement> findElements(By locator){
+    public List<WebElement> findElements(By locator) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
         return driver.findElements(locator);
     }
@@ -43,7 +42,7 @@ public abstract class BasePage {
         return element.isDisplayed();
     }
 
-    public static Alert switchToAlert() {
+    public Alert switchToAlert() {
         wait.until(ExpectedConditions.alertIsPresent());
         return driver.switchTo().alert();
     }

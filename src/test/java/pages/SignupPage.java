@@ -12,8 +12,8 @@ public class SignupPage extends BasePage{
     protected String user = Utils.generateRandomUsername();
     protected String passw = Utils.generateRandomPassword();
 
-    public SignupPage(WebDriver driver){
-        super(driver);
+    public SignupPage(){
+        super();
     }
 
     public void click(){

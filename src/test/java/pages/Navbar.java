@@ -8,8 +8,8 @@ public class Navbar extends BasePage{
     protected By homeButton = By.cssSelector("navbarExample > ul > li.nav-item.active > a");
     protected By cartButton = By.id("cartur");
 
-    public Navbar (WebDriver driver){
-        super(driver);
+    public Navbar (){
+        super();
     }
 
     public void click(String toClick){

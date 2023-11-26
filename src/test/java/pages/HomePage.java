@@ -8,8 +8,8 @@ public class HomePage extends BasePage{
     protected By phoneCategory =By.cssSelector("[onclick=\"byCat('phone')\"]");
     protected By laptopCategory =By.cssSelector("[onclick=\"byCat('notebook')\"]");
     protected By monitorCategory =By.cssSelector("[onclick=\"byCat('monitors')\"]");
-    public HomePage (WebDriver driver){
-        super(driver);
+    public HomePage (){
+        super();
     }
 
     public void clickCategory(String category){

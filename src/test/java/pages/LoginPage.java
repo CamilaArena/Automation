@@ -9,12 +9,12 @@ public class LoginPage extends BasePage{
     protected By username = By.id("loginusername");
     protected By password = By.id("loginpassword");
     protected By login =By.cssSelector("[onclick=\"logIn()\"]");
-    protected SignupPage signup = new SignupPage(driver);
+    protected SignupPage signup = new SignupPage();
     protected By welcomeSign = By.id("nameofuser");
 
 
-    public LoginPage(WebDriver driver){
-        super(driver);
+    public LoginPage(){
+        super();
     }
 
     public void click(){

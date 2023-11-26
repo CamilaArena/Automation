@@ -7,10 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CartPage;
-import pages.HomePage;
-import pages.Navbar;
-import pages.ProductPage;
+import pages.*;
+import services.DriverManager;
 
 public class Purchase {
     public WebDriver driver;
@@ -21,13 +19,12 @@ public class Purchase {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();
         driver.manage().window().maximize();
-        home = new HomePage(driver);
-        productToBuy = new ProductPage(driver);
-        nav = new Navbar(driver);
-        cart = new CartPage(driver);
+        nav = new Navbar();
+        cart = new CartPage();
+        home = new HomePage();
+        productToBuy = new ProductPage();
     }
 
 
@@ -55,7 +52,6 @@ public class Purchase {
     @After
     public void close() {
         driver.manage().deleteAllCookies();
-        driver.quit();
     }
 
 }
