@@ -8,11 +8,13 @@ public class SignupPage extends BasePage{
     protected By username = By.id("sign-username");
     protected By password = By.id("sign-password");
     protected By register =By.cssSelector("[onclick=\"register()\"]");
-    protected String user = Utils.generateRandomUsername();
-    protected String passw = Utils.generateRandomPassword();
+    protected static String user;
+    protected static String passw;
 
     public SignupPage(){
         super();
+        user = Utils.getService().getUsername();
+        passw = Utils.getService().getPassword();
     }
 
     public void click(){
@@ -21,6 +23,7 @@ public class SignupPage extends BasePage{
 
     public void completeUsername(){
         findElement(username).sendKeys(user);
+        System.out.println(user);
     }
 
     public void completePassword(){
@@ -31,11 +34,12 @@ public class SignupPage extends BasePage{
         findElement(register).click();
     }
 
-    public String getUsername(){
+    public static String getUsername(){
         return user;
     }
 
-    public String getPassword(){
+    public static String getPassword(){
+        System.out.println(passw);
         return passw;
     }
 

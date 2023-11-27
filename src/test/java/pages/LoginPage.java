@@ -8,7 +8,6 @@ public class LoginPage extends BasePage{
     protected By username = By.id("loginusername");
     protected By password = By.id("loginpassword");
     protected By login =By.cssSelector("[onclick=\"logIn()\"]");
-    protected SignupPage signup = new SignupPage();
     protected By welcomeSign = By.id("nameofuser");
 
 
@@ -21,11 +20,12 @@ public class LoginPage extends BasePage{
     }
 
     public void completeValidUsername(){ //puts an existing username
-        findElement(username).sendKeys(Utils.getUsername());
+        System.out.println(SignupPage.getUsername());
+        findElement(username).sendKeys(Utils.getService().getUsername());
     }
 
     public void completeValidPassword(){
-        findElement(password).sendKeys(Utils.getPassword());
+        findElement(password).sendKeys(Utils.getService().getPassword());
     }
 
     public void completeInvalidUsername(){ //creates a new username
@@ -46,11 +46,11 @@ public class LoginPage extends BasePage{
     }
 
     public String getUsername(){
-        return signup.getUsername();
+        return SignupPage.getUsername();
     }
 
     public String getPassword(){
-        return signup.getPassword();
+        return SignupPage.getPassword();
     }
 
 }
