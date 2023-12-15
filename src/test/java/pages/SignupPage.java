@@ -13,8 +13,8 @@ public class SignupPage extends BasePage{
 
     public SignupPage(){
         super();
-        user = Utils.getService().getUsername();
-        passw = Utils.getService().getPassword();
+        user = Utils.generateRandomUsername();
+        passw = Utils.generateRandomPassword();
     }
 
     public void click(){

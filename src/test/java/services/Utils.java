@@ -1,8 +1,5 @@
 package services;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.UUID;
 
 public class Utils {
@@ -36,14 +33,6 @@ public class Utils {
             p.append(characters.charAt(index));
         }
         password = p.toString();
-        return password;
-    }
-
-    public static String getUsername(){
-        return username;
-    }
-
-    public static String getPassword(){
         return password;
     }
 

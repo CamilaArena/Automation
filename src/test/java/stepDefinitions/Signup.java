@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.ro.Si;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import pages.LoginPage;
 import pages.Navbar;
 import pages.SignupPage;
@@ -43,6 +44,7 @@ public class Signup {
     @Then("I get a success message")
     public void success(){
         signup.register();
+        Assert.assertTrue(signup.switchToAlert().getText().contains("Sign up successful."));
         signup.switchToAlert().dismiss();
     }
 

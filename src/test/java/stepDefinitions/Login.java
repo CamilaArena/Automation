@@ -32,10 +32,10 @@ public class Login {
         login.click();
     }
 
-    @When("I complete the username and password with valid ones")
-    public void completeData(){
-        login.completeValidUsername();
-        login.completeValidPassword();
+    @When("I complete the {string} and {string} with valid ones")
+    public void iCompleteTheAndWithValidOnes(String arg0, String arg1) {
+        login.completeUsername(arg0);
+        login.completePassword(arg1);
     }
 
     @Then("I get logged in")
@@ -45,10 +45,10 @@ public class Login {
     }
 
     // I try to log in with invalid username
-    @When("I complete the username with an invalid one")
-    public void completeInvalidUsername(){
-        login.completeInvalidUsername();
-        login.completeValidPassword();
+    @When("I complete the {string} with an invalid one")
+    public void iCompleteTheWithAnInvalidOne(String arg0) {
+        login.completeUsername(arg0);
+        login.completePassword(arg0);
     }
 
     @Then("I get a message indicating that User does not exist")
@@ -59,10 +59,10 @@ public class Login {
     }
 
     // Scenario: I try to log in with invalid password
-    @When("I complete the username field with a valid username, and the password with an invalid one")
-    public void completeInvalidPassword(){
-        login.completeValidUsername();
-        login.completeInvalidPassword();
+    @When("I complete the {string} field with a valid username, and the {string} with an invalid one")
+    public void iCompleteTheFieldWithAValidUsernameAndTheWithAnInvalidOne(String arg0, String arg1) {
+        login.completeUsername(arg0);
+        login.completePassword(arg1);
     }
 
     @Then("I get a message indicating that the password is incorrect")
@@ -76,4 +76,5 @@ public class Login {
     public void close() {
         driver.manage().deleteAllCookies();
     }
+
 }
