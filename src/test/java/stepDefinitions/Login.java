@@ -77,4 +77,23 @@ public class Login {
         driver.manage().deleteAllCookies();
     }
 
+    @When("I don't complete username field and complete the {string}")
+    public void iDonTCompleteUsernameFieldAndCompleteThe(String arg0) {
+        login.completePassword(arg0);
+        login.completeUsername("");
+    }
+
+    @Then("I get a message indicating that I should fill out Username and Password")
+    public void iGetAMessageIndicatingThatIShouldFillOutUsernameAndPassword() {
+        login.login();
+        Assert.assertTrue(login.switchToAlert().getText().contains("Please fill out Username and Password."));
+        login.switchToAlert().dismiss();
+    }
+
+
+    @When("I complete the {string} field with a valid username, and empty password")
+    public void iCompleteTheFieldWithAValidUsernameAndEmptyPassword(String arg0) {
+        login.completePassword("");
+        login.completeUsername(arg0);
+    }
 }
