@@ -38,9 +38,4 @@ public class SignupPage extends BasePage{
         return user;
     }
 
-    public static String getPassword(){
-        System.out.println(passw);
-        return passw;
-    }
-
 }

@@ -13,13 +13,6 @@ public class Utils {
         // private constructor to prevent instantiation
     }
 
-    public static Utils getService() {
-        if (util == null) {
-            util = new Utils();
-        }
-        return util;
-    }
-
     public static String generateRandomUsername() {
         username = "user_" + UUID.randomUUID().toString().substring(0, 8);
         return username;

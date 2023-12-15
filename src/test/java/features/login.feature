@@ -11,6 +11,8 @@ Feature: Log in
     Examples: credentials
       | username          | password |
       | a99@gmail.com     | 1234     |
+      |test99@yahoo.com   | admin    |
+      |test100@yahoo.com   | 1111    |
 
 
   @logInInvalidUsername
@@ -23,6 +25,8 @@ Feature: Log in
     Examples: credentials
       | username      |
       | 124536512@gmail.com |
+      | asdsa3242@gmail.com |
+      | aff53deew@gmail.com |
 
   @logInInvalidPassword
   Scenario Outline: I try to log in with invalid password
@@ -33,4 +37,6 @@ Feature: Log in
 
     Examples: credentials
       | username      | password |
-      | a99@gmail.com | 1111     |
+      | a99@gmail.com | test     |
+      |test99@yahoo.com | test |
+      |test100@yahoo.com | test |
